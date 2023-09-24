@@ -1,29 +1,38 @@
 using Microsoft.AspNetCore.Mvc;
 
 namespace shirts.Controllers;
+
 [ApiController]
+[Route("/api/[controller]")]
 public class ShirtsController: ControllerBase
 {
+    [HttpGet]
     public string GetShirts()
     {
         return "Reading all shirts";
     }
 
+    [HttpGet("{id}")]
     public string GetShirtById(int id)
     {
         return $"Reading shirt {id}";
     }
 
+    [HttpPost]
     public string CreateShirt()
     {
         return $"Creating a shirt";
     }
 
-    public string UpdateShirt()
+    
+    [HttpPut("{id}")]
+    public string UpdateShirt(int id)
     {
-        return $"Update shirt";
+        return $"Update shirt {id}";
     }
 
+    
+    [HttpDelete("{id}")]
     public string DeleteShirt(int id)
     {
         return $"Deleting shirt {id}";
